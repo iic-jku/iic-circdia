@@ -1,0 +1,53 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[iic,digital,semicon,srcmeas,curlyinduc]{circdia}
+
+\title{Example Use of CircDia}
+\author{Harald Pretl, IIC, Johannes Kepler University Linz}
+\date{\textcopyright~2021}
+
+\begin{document}
+	\maketitle
+	\centering
+	\begin{tikzpicture}[x = 1ex, y = 1ex, line cap = round, line join = round, cdthinlines]
+		\trans{pmos*}{10}{20}{L}{$M_1$}{}
+		\trans{pmos*}{20}{20}{R}{$M_2$}{}
+		\wire{13}{20}{17}{20}
+		\junct{13}{20}
+		\junct{8}{15}
+		\wire{8}{15}{13}{15}
+		\wire{13}{15}{13}{20}
+		\trans{nmos}{6}{10}{R}{$M_3$}{4/0.4}
+		\trans{nmos}{24}{10}{L}{$M_4$}{4/0.4}
+		\wire{8}{12}{8}{18}
+		\wire{22}{12}{22}{18}
+		\wire{8}{8}{8}{5}
+		\wire{8}{5}{22}{5}
+		\wire{22}{5}{22}{8}
+		\junct{15}{5}
+		\wire{15}{5}{15}{3}
+		\othersrc{->}{15}{0}{D}{}{\SI{1}{\mA}}
+		\iicvss{15}{-4}
+		\iicvdd{8}{29}
+		\iicvdd{22}{29}
+		\resis{8}{25}{V}{$R_1$}{}
+		\resis{22}{25}{V}{$R_2$}{}
+		\junct{22}{15}
+		\wire{3}{10}{3}{10}
+		\wire{27}{10}{27}{10}
+		\pin{2}{10}{L}{$V_\mathrm{in,p}$}
+		\pin{28}{10}{R}{$V_\mathrm{in,n}$}
+		\wire{22}{15}{27}{15}
+		\pin{28}{15}{R}{$V_\mathrm{out}$}
+		\capac{17}{15}{Hd}{$C_1$}{}
+		\wire{13}{15}{16}{15}
+		\junct{13}{15}
+		\wire{18}{15}{22}{15}
+	\end{tikzpicture}
+\end{document}

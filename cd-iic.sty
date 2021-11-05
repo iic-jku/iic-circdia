@@ -1,0 +1,46 @@
+% cd-iic.sty
+% File created by Harald Pretl -- version 1.0 -- 2021/03/06.
+% Supports IIC-specific addons for circdia.sty.
+% Added iicvdd/iicvss according Razavi -- Harald Pretl -- 2021/02/18
+% Changed resistor and capacitor according Razavi -- Harald Pretl -- 2021/03/06
+\tikzset{cdvthinlines/.style = {line width = 0.1ex}}
+\tikzset{cdthinlines/.style = {line width = 0.2ex}}
+\tikzset{cdmedlines/.style = {line width = 0.3ex}}
+\tikzset{cduthicklines/.style = {line width = 0.7ex, line cap = rect}}
+\newcommand{\iicvss}[2]{
+  \othergnd{---}{#1}{#2}{D}
+}
+\newcommand{\iicvdd}[2]{
+  \othergnd{-}{#1}{#2}{U}
+}
+\newcommand{\iicvddl}[3]{
+  \otherpow{-}{#1}{#2}{U}{#3}
+}
+\renewcommand{\resisH}[1]{
+ \setstandardtextpos{ud}
+ \placerefvalH{-3}{0}{3}{-2.25}{0}{2.25}
+ #1
+ \draw [cdmedlines] (-1.8, 0) -- (-1.5, 1) -- (-0.9, -1) -- (-0.3, 1) -- (0.3, -1) -- (0.9, 1) -- (1.5, -1) -- (1.8, 0); 
+ \draw (-1.8, 0) -- (-3, 0) (1.8, 0) -- (3, 0);
+}
+\renewcommand{\resisV}[1]{
+ \setstandardtextpos{r}
+ \placerefvalV{-1.5}{0}{1.5}{-3.75}{0}{3.75}
+ #1
+ \draw [cdmedlines] (0, -1.8) -- (1, -1.5) -- (-1, -0.9) -- (1, -0.3) -- (-1, 0.3) -- (1, 0.9) -- (-1, 1.5) -- (0, 1.8);
+ \draw (0, -1.8) -- (0, -3) (0, 1.8) -- (0, 3);
+}
+\renewcommand{\capacH}[1]{
+ \setstandardtextpos{r}
+ \placerefvalH{-1.25}{0}{1.25}{-3}{0}{3}
+ #1
+ \draw [cdthicklines] (-0.45, -1.3) -- (-0.45, 1.3) (0.45, -1.3) -- (0.45, 1.3);
+ \draw (-0.45, 0) -- (-1, 0) (0.45, 0) -- (1, 0);
+}
+\renewcommand{\capacV}[1]{
+ \setstandardtextpos{hr}
+ \placerefvalV{-2.25}{0}{2.25}{-1.75}{0}{1.75}
+ #1
+ \draw [cdthicklines] (-1.3, -0.45) -- (1.3, -0.45) (-1.3, 0.45) -- (1.3, 0.45);
+ \draw (0, -0.45) -- (0, -1) (0, 0.45) -- (0, 1);
+}
