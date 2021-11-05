@@ -4,7 +4,7 @@ This is a fork of Stefan Krause's `circdia` LaTeX package (http://www.taylorgrup
 
 The regular updates from Stefan's Zip-file are tracked.
 
-For exemplary use of this LaTeX package, see `demo_circdia.tex`.
+For exemplary use of this LaTeX package, see `demo_circdia.tex`. This package has also been used to create the circuit figures in this publication: https://doi.org/10.1109/MSSC.2021.3088968
 
 Changes versus the original package:
 * Added MOSFET symbols according to Razavi book style (elements `nmos`, `nmos*`, `pmos`, `pmos*`)
