@@ -1,6 +1,6 @@
 % cd-semicon.sty
 % from http://www.taylorgruppe.de/circdia/
-% File created by Stefan Krause -- version 2.0a -- 2021/03/01.
+% File created by Stefan Krause -- version 2.0b -- 2022/03/17.
 % Added nmos/nmos*/pmos/pmos* according Razavi -- Harald Pretl -- 2020/11/20.
 % Fixed support of suborient for new nmos/nmos*/pmos/pmos* devices -- Harald Pretl -- 2021/02/18
 % Supports additional semiconductor symbols for circdia.sty.
@@ -484,6 +484,7 @@
  \ifthenelse{\equal{\cdorient}{L}}{
   \ifthenelse{\equal{\cdsuborient}{U}}{
    \renewcommand{\transthick}{\draw [cdthicklines] (1.1, -1.75) -- (1.1, 0.75+#1);}
+   \renewcommand{\transceconn}{\draw (-1, -2.376973) -- (-1, -3);}
    \setcounter{cdcounter}{#1}
    \whiledo{\value{cdcounter}>1}{
     \draw (1.1, -0.3+\thecdcounter) -- (-#1-1+\thecdcounter, 1.376973+0.798559*#1+0.201441*\thecdcounter)
@@ -498,6 +499,7 @@
    \draw (-1, 2.376973) -- (-#1, 1.578414+0.798559*#1) -- (-#1, 2+#1);
   }{
    \renewcommand{\transthick}{\draw [cdthicklines] (1.1, -0.75-#1) -- (1.1, 1.75);}
+   \renewcommand{\transceconn}{\draw (-1, 2.376973) -- (-1, 3);}
    \setcounter{cdcounter}{#1}
    \whiledo{\value{cdcounter}>1}{
     \draw (1.1, 0.3-\thecdcounter) -- (-#1-1+\thecdcounter, -1.376973-0.798559*#1-0.201441*\thecdcounter)
@@ -548,6 +550,7 @@
  \ifthenelse{\equal{\cdorient}{U}}{
   \ifthenelse{\equal{\cdsuborient}{L}}{
    \renewcommand{\transthick}{\draw [cdthicklines] (-0.75-#1, -1.1) -- (1.75, -1.1);}
+   \renewcommand{\transceconn}{\draw (2.376973, 1) -- (3, 1);}
    \setcounter{cdcounter}{#1}
    \whiledo{\value{cdcounter}>1}{
     \draw (0.3-\thecdcounter, -1.1) -- (-1.376973-0.798559*#1-0.201441*\thecdcounter, #1+1-\thecdcounter)
@@ -562,6 +565,7 @@
    \draw (-2.376973, 1) -- (-1.578414-0.798559*#1, #1) -- (-2-#1, #1);
   }{
    \renewcommand{\transthick}{\draw [cdthicklines] (-1.75, -1.1) -- (0.75+#1, -1.1);}
+   \renewcommand{\transceconn}{\draw (-2.376973, 1) -- (-3, 1);}
    \setcounter{cdcounter}{#1}
    \whiledo{\value{cdcounter}>1}{
     \draw (-0.3+\thecdcounter, -1.1) -- (1.376973+0.798559*#1+0.201441*\thecdcounter, #1+1-\thecdcounter)
@@ -579,6 +583,7 @@
  \ifthenelse{\equal{\cdorient}{D}}{
   \ifthenelse{\equal{\cdsuborient}{L}}{
    \renewcommand{\transthick}{\draw [cdthicklines] (-0.75-#1, 1.1) -- (1.75, 1.1);}
+   \renewcommand{\transceconn}{\draw (2.376973, -1) -- (3, -1);}
    \setcounter{cdcounter}{#1}
    \whiledo{\value{cdcounter}>1}{
     \draw (0.3-\thecdcounter, 1.1) -- (-1.376973-0.798559*#1-0.201441*\thecdcounter, -#1-1+\thecdcounter)
@@ -593,6 +598,7 @@
    \draw (-2.376973, -1) -- (-1.578414-0.798559*#1, -#1) -- (-2-#1, -#1);
   }{
    \renewcommand{\transthick}{\draw [cdthicklines] (-1.75, 1.1) -- (0.75+#1, 1.1);}
+   \renewcommand{\transceconn}{\draw (-2.376973, -1) -- (-3, -1);}
    \setcounter{cdcounter}{#1}
    \whiledo{\value{cdcounter}>1}{
     \draw (-0.3+\thecdcounter, 1.1) -- (1.376973+0.798559*#1+0.201441*\thecdcounter, -#1-1+\thecdcounter)
