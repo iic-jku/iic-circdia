@@ -1,6 +1,6 @@
 % cd-srcmeas.sty
 % from http://www.taylorgruppe.de/circdia/
-% File created by Stefan Krause -- version 2.0a -- 2020/11/02.
+% File created by Stefan Krause -- version 2.1 -- 2023/02/19.
 % Supports additional source and measurement symbols for circdia.sty.
 % Other grounds
 \newcommand{\othergnd}[5][]{
@@ -517,7 +517,7 @@
   \cdbigarrow[3]{0}{-1.5}{-90}
  }{}
 }
-% Measurement device
+% Measurement devices
 \newcommand{\measdev}[6][]{
  \prepareelement{UI}{}{#4}{#5}{#6}
  \begin{scope}[shift = {(#2, #3)}]
@@ -713,7 +713,7 @@
   }{}
  }{}
 }
-% Polarity
+% Polarities
 \newcommand{\polarity}[1]{
  \ifthenelse{\equal{#1}{UL}}{\cdoplus{-2.75}{1.25}\cdominus{2.75}{1.25}}{}
  \ifthenelse{\equal{#1}{UR}}{\cdoplus{2.75}{1.25}\cdominus{-2.75}{1.25}}{}
@@ -724,5 +724,19 @@
  \ifthenelse{\equal{#1}{RU}}{\cdoplus{1.25}{2.75}\cdominus{1.25}{-2.75}}{}
  \ifthenelse{\equal{#1}{RD}}{\cdoplus{1.25}{-2.75}\cdominus{1.25}{2.75}}{}
 }
-% Measurement unit
+% Measurement units
 \newcommand{\measunit}[1]{{\sffamily\cdputtext{0}{0}{c}{#1}}}
+% Wettmeters
+\newcommand{\wmeter}[1]{
+ \ifthenelse{\equal{\cdorient}{H}}{
+  \draw [cdthicklines] (-1.915, 0) -- (1.915, 0);
+  \draw (0, -3) -- (0, 3);
+ }{
+  \draw [cdthicklines] (0, -1.915) -- (0, 1.915);
+  \draw (-3, 0) -- (3, 0);
+ }
+ \ifthenelse{\equal{#1}{LU}}{\junct{-2}{2}}{}
+ \ifthenelse{\equal{#1}{LD}}{\junct{-2}{-2}}{}
+ \ifthenelse{\equal{#1}{RU}}{\junct{2}{2}}{}
+ \ifthenelse{\equal{#1}{RD}}{\junct{2}{-2}}{}
+}
